@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ToggleRotation : MonoBehaviour
+public class BoolParameterController : MonoBehaviour
 {
     Animator animator;
-    bool isRotating = false;
+    public bool isRotating = false;
     public TextMeshProUGUI boolText;
 
     private void Start()
@@ -23,7 +23,7 @@ public class ToggleRotation : MonoBehaviour
             isRotating = true;
             boolText.text = "bool is " + isRotating.ToString();
         }
-        else if (Input.GetKeyUp(KeyCode.Tab) && isRotating)
+        else if (Input.GetKeyDown(KeyCode.Tab) && isRotating)
         {
             isRotating = false;
             boolText.text = "bool is " + isRotating.ToString();
