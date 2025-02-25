@@ -15,14 +15,15 @@ public class TriggerParameterController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isOpen)
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (Input.GetKeyDown(KeyCode.Space) && !isOpen && stateInfo.IsName("chest_closed"))
         {
             isOpen = true;
             animator.SetTrigger("open");
             chestText.text = "Chest is open";
             Debug.Log("Trigger 'Open' is set");
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.Space) && isOpen && stateInfo.IsName("chest_open"))
         {
             animator.SetTrigger("close");
             chestText.text = "Chest is closed";

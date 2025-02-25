@@ -21,7 +21,7 @@ public class FloatParameterController : MonoBehaviour
     private void Update()
     {
         float mouseScrollInput = Input.mouseScrollDelta.y;
-        lightText.text = "Light Speed: " + currentLightSpeed.ToString();
+        lightText.text = "Light Speed: " + animator.GetFloat("lightSpeed").ToString();
 
         currentLightSpeed += mouseScrollInput;
 
